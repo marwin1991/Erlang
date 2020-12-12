@@ -13,6 +13,7 @@
 -export([start/0, ping_loop/0, pong_loop/0, stop/0, play/1]).
 
 start() ->
+  lager:start(),
   register(ping,spawn(?MODULE,ping_loop,[])),
   register(pong,spawn(?MODULE,pong_loop,[])).
 
